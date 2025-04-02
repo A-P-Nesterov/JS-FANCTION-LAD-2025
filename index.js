@@ -80,37 +80,29 @@
 // console.log(isNumberInRange(-5));
 //9. *Сделайте функцию getDigitsSum (digit - это цифра), которая параметром принимает целое число и возвращает сумму его цифр.
 
-// function getDigitsSum(num = 12345) {
-//   let strArr = num.toString().split("");
-//   let numArr = strArr.map(function (num) {
-//     return parseInt(num, 10);
-//   });
-//   let sum = 0;
-//   for (let i = 0; i < numArr.length; i++) {
-//     sum = sum + numArr[i];
-//   }
-//   console.log(sum);
-// }
-// getDigitsSum(23456789);
+function getDigitsSum(year) {
+  let strArr = year.toString().split("");
+  let numArr = strArr.map(function (year) {
+    return parseInt(year, 10);
+  });
+  let sum = 0;
+  for (let i = 0; i < numArr.length; i++) {
+    sum = sum + numArr[i];
+  }
+  return sum;
+}
+// getDigitsSum();
 //10. *Найдите все года от 1 до 2020, сумма цифр которых равна 13. Для этого используйте вспомогательную функцию getDigitsSum из предыдущей задачи.
 
-// function sumOfDigits(year) {
-//   return year
-//     .toString()
-//     .split("")
-//     .map(Number)
-//     .reduce((sum, digit) => sum + digit, 0);
-// }
+const yearsWithSumOfDigits13 = [];
 
-// const yearsWithSumOfDigits13 = [];
+for (let year = 1; year <= 2020; year++) {
+  if (getDigitsSum(year) === 13) {
+    yearsWithSumOfDigits13.push(year);
+  }
+}
 
-// for (let year = 1; year <= 2020; year++) {
-//   if (sumOfDigits(year) === 13) {
-//     yearsWithSumOfDigits13.push(year);
-//   }
-// }
-
-// console.log(yearsWithSumOfDigits13);
+console.log(yearsWithSumOfDigits13);
 
 // 11.  Сделайте функцию isEven() (even - это четный), которая параметром принимает целое число и проверяет: четное оно или нет. Если четное - пусть функция возвращает true, если нечетное - false.
 // function isEven(num) {
